@@ -11,16 +11,17 @@ import java.util.Set;
 
 @Service
 @Profile("springdatajpa")
-public class PetTypeSDJpaService  implements PetTypeService  {
+public class PetTypeSDJpaService implements PetTypeService {
 
     private final PetTypeRepository petTypeRepository;
 
     public PetTypeSDJpaService(PetTypeRepository petTypeRepository) {
         this.petTypeRepository = petTypeRepository;
     }
+
     @Override
     public Set<PetType> findAll() {
-        Set<PetType> petTypes=new HashSet<>();
+        Set<PetType> petTypes = new HashSet<>();
         petTypeRepository.findAll().forEach(petTypes::add);
         return petTypes;
     }
@@ -38,7 +39,6 @@ public class PetTypeSDJpaService  implements PetTypeService  {
     @Override
     public void delete(PetType object) {
         petTypeRepository.delete(object);
-
     }
 
     @Override
